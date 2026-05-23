@@ -3,14 +3,11 @@ import streamlit as st
 from dotenv import load_dotenv
 from openai import OpenAI
 
-# Load local environment variables from .env when running locally.
-# On Streamlit Cloud, use st.secrets or environment variables instead.
 load_dotenv()
 
 APP_TITLE = "AI-Powered FAQ Chatbot"
 APP_SUBTITLE = "VedGrow GAI Task 2"
 
-# You can change this topic if needed.
 BOT_NAME = "AI Internship FAQ Assistant"
 KNOWLEDGE_DOMAIN = """
 You answer FAQs about an AI/Generative AI internship workflow.
@@ -125,7 +122,6 @@ def ask_chatbot(user_message):
         response = client.responses.create(
             model=model_name,
             input=build_openai_messages(user_message),
-            temperature=0.3,
             max_output_tokens=500
         )
 
